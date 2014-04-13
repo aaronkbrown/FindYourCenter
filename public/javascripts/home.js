@@ -6,6 +6,34 @@ $(function() {
     }
   });
 
+  var data;
+  // Import the data
+  $.getJSON('/data/yogadata.json', function (yogaData) {
+    data = yogaData;
+    presentData();
+  });
+
+  function presentData () {
+    $grid = $('.grid');
+    $newGrid = $('<table>');
+    // Add header
+    $thead = $('<thead>');
+    $theadtr = $('<tr>');
+    $thead.append($theadtr);
+    var types = Object.keys(data[0]);
+    console.log(types);
+    $newGrid.append($thead);
+
+    $tbody = $('<tbody>');
+    $newGrid.append($tbody);
+    for (var i in data) {
+      var studio = data[i];
+      $tr = $('<tr>');
+
+      // $newGrid.
+    }
+  }
+
   // Gets geolocation
   function getLocation() {
     if (navigator.geolocation) {
