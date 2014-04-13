@@ -1,0 +1,6 @@
+.searchResults {
+  width: 100%;
+  height: calc(100% - 125px);
+  margin-top: 125px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
