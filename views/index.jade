@@ -9,21 +9,10 @@ block content
     .underlay
     .overlay
     header
-      .left
-        img.logo(src='/images/logo.svg')
-      .right
-        ul
-          li
-            a(href='/classes') Classes
-          li
-            a(href='/events') Events
-          li
-            a(href='/retreats') Retreats
-          li
-            a(href='/blog') Blog
+      include nav
       .center
         h1 Find your center
-        h3 Blah blah blah
+        h3 Find your perfect yoga studio
         .searchBoxArea
           i.fa.fa-map-marker(style='font-size:20px')
           input.search(placeholder='Where are you?')
