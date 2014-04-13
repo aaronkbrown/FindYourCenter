@@ -16,12 +16,18 @@ $(function() {
   function presentData () {
     $grid = $('.grid');
     $newGrid = $('<table>');
+
+    // The displayed types
+    var types = ["Studio Name", "Neighborhood", "Address", "Phone", "Email", "Owner", "Size", "Price", "Discount", "Child Care", "Yoga Therapy", "Gentle/Relaxation/Restorative", "Intro", "Strength Based", "Heated", "Acro", "Prenatal", "Youth or Family", "Meditation", "Notes"];
+
     // Add header
     $thead = $('<thead>');
     $theadtr = $('<tr>');
     $thead.append($theadtr);
-    var types = Object.keys(data[0]);
-    console.log(types);
+    for (var i in types) {
+      $theadtr.append('<td>' + types[i] + '</td>');
+    }
+    $thead.append($theadtr);
     $newGrid.append($thead);
 
     $tbody = $('<tbody>');
@@ -30,8 +36,26 @@ $(function() {
       var studio = data[i];
       $tr = $('<tr>');
 
-      // $newGrid.
+      // Add tds
+      for (var j in types) {
+        var type = types[j];
+        var inside = studio[type];
+        if (type === 'Studio Name') {
+          inside = '<a href="'+studio['Website']+'">' + studio[type] + '</a>';
+        }
+        var $td = $('<td>').html(inside);
+        if (studio[type].substr(0, 3) === 'yes') {
+          $td.addClass('green');
+        } else if (studio[type].substr(0, 2) === 'no') {
+          $td.addClass('red');
+        }
+        $tr.append($td);
+      }
+      $newGrid.append($tr);
     }
+
+    // Add to the grid div
+    $grid.html($newGrid);
   }
 
   // Gets geolocation
@@ -44,7 +68,7 @@ $(function() {
   }
   function showPosition(position) {
     var coord = position.coords;
-    console.log(coord);
+    // console.log(coord);
   }
   getLocation();
 

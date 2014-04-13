@@ -3,4 +3,40 @@
   height: calc(100% - 125px);
   margin-top: 125px;
   background-color: rgba(0, 0, 0, 0.5);
+  overflow-y: scroll;
+}
+
+table {
+    background-color: #aaa;
+}
+tbody {
+    background-color: #ddd;
+    height: 100px;
+    overflow: auto;
+}
+td {
+    padding: 3px 10px;
+}
+
+/*thead > tr, tbody {
+  display:block;
+}
+
+thead {
+  color: black;
+  background-color: white;
+}
+td {
+  padding: 10px;
+}
+td a {
+  text-decoration: underline;
+}
+*/
+.green {
+  background-color: rgba(49, 185, 150, 0.4);
+}
+
+.red {
+  background-color: rgba(255, 26, 20, 0.4);
 }
