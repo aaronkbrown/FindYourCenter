@@ -46,7 +46,7 @@ $(function() {
         var $td = $('<td>').html(inside);
         if (studio[type].substr(0, 3) === 'yes') {
           $td.addClass('green');
-        } else if (studio[type].substr(0, 2) === 'no') {
+        } else if (studio[type] === 'no') {
           $td.addClass('red');
         }
         $tr.append($td);
