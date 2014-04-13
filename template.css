@@ -4,7 +4,12 @@ html, body {
 }
 
 body {
-  background-color: #b08040;
+  /* background-color: #b08040; */
+  background-color: white;
+  position: absolute;
+  top: 0;
+  bottom: 150px;
+  width:100%;
 }
 
 header {
@@ -44,6 +49,7 @@ main {
   background-color: white;
   margin: 0 auto;
   text-align: center;
+  min-height: 100%;
 }
 
 main h1 {
