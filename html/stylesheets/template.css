@@ -1,0 +1,223 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* background-color: #b08040; */
+  background-color: white;
+  position: absolute;
+  top: 0;
+  /* bottom: 150px; */
+  bottom: 0;
+  width:100%;
+}
+
+header {
+  background-color: green;
+  position: relative;
+  width: 100%;
+  height: 100px;
+  top: 0;
+}
+
+header figure {
+  float:left;
+}
+
+header nav {
+  position: absolute;
+  bottom: 1.5em;
+  right: 1.5em;
+  width: 35em;
+  text-align: right;
+}
+
+header a {
+  color: white;
+  font-family: helvetica;
+  font-size: 1.2em;
+  text-decoration: none;
+  font-weight: 200;
+  display:inline-block;
+  margin:0 1em;
+
+}
+
+
+main {
+  width: 980px;
+  background-color: white;
+  margin: 0 auto;
+  text-align: center;
+  min-height: calc(100% - 150px);
+}
+
+main h1 {
+  color: #606060;
+  font-family: 'Cinzel', serif;
+  font-size: 2em;
+}
+
+main p {
+  color: #606060;
+  font-family: helvetica, sans-serif;
+  font-weight: 300;
+  text-align: justify;
+}
+
+main h2 {
+  color: #606060;
+  font-family: helvetica, sans-serif;
+  font-weight: 300;
+  text-align: justify;
+}
+
+main ol {
+  color: #606060;
+  font-family: helvetica, sans-serif;
+  font-weight: 300;
+}
+
+main a {
+  color: green;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+main .blog-content {
+  width: 72%;
+  background-color: white;
+  display: inline-block;
+  vertical-align: top;
+  min-height:500px;
+  top: 0;
+  padding-left: 1em;
+  padding-right: 1em;
+  text-align: justify;
+}
+
+main nav {
+  width: 24%;
+  background-color: white;
+  height: 500px;
+  font-family: helvetica;
+  font-size: 1.5em;
+  display: inline-block;
+}
+
+main nav h1 {
+  font-size: 1em;
+}
+
+main nav a {
+  text-align: left;
+  display: block;
+  color: #606060;
+  font-weight: 200;
+  font-size: 0.8em;
+  line-height: 2em;
+}
+
+.half-width {
+  width: 48%;
+  background-color: white;
+  display:inline-block;
+  padding: 0.3em;
+}
+
+.third-width {
+  width: 31%;
+  background-color: white;
+  display: inline-block;
+  padding: 0.3em;
+}
+
+main.search {
+  text-align: center;
+  width: 100%;
+  background-color: white;
+  margin: 0 auto;
+  min-height: calc(100% - 150px);
+}
+
+.search-top {
+  width: 100%;
+  height:80px;
+  text-align: center;
+}
+
+.search-top h1 {
+  display: inline-block;
+}
+
+.search-bottom {
+  width: 100%;
+  height: 20px;
+}
+
+.search-parameters {
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+
+form {
+  font-family: helvetica, sans-serif;
+  color: #606060;
+}
+
+fieldset {
+  /* border: 1px solid black; */
+  border: none;
+}
+
+legend {
+  /* margin: 1em; */
+}
+
+input {
+  margin: 1em;
+  width: 20em;
+}
+
+select {
+  margin: 1em;
+}
+
+.search-hit {
+  width: 100%;
+  border-bottom: 1px solid black;
+  min-height: 80px;
+}
+
+.search-hit-logo {
+  height: 80px;
+  width: 80px;
+  display: inline-block;
+}
+
+.search-hit-schedule {
+  min-height: 80px;
+  width: calc(99% - 80px);
+  display: inline-block;
+}
+
+footer {
+  background-color: green;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  bottom: 0;
+  text-align: center;
+}
+
+footer small {
+  color: white;
+}
+
+
+
+
+
