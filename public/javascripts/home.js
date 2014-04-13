@@ -1,12 +1,24 @@
 $(function() {
   $(window).keydown(function (e) {
-    if (e.which === 13) {
+    if (e.which === 13 && document.URL.indexOf('search') === -1) {
       var query = $('.search').val();
       window.location.href = '/search/' + query;
     }
   });
 
+
   var data;
+  var query = '';
+
+  $('.search').on('input', function () {
+    query = $('.search').val();
+    presentData();
+  });
+
+  // Get the query on load
+  query = document.URL.split("/").pop();
+  $('.search').val(query);
+
   // Import the data
   $.getJSON('/data/yogadata.json', function (yogaData) {
     data = yogaData;
@@ -36,22 +48,37 @@ $(function() {
       var studio = data[i];
       $tr = $('<tr>');
 
-      // Add tds
-      for (var j in types) {
-        var type = types[j];
-        var inside = studio[type];
-        if (type === 'Studio Name') {
-          inside = '<a href="'+studio['Website']+'">' + studio[type] + '</a>';
+      // Filter
+      var include = false;
+      if (!query) {
+        include = true;
+      } else {
+        for (var j in types) {
+          var type = types[j];
+          if (studio[type].toLowerCase().indexOf(query) !== -1) {
+            include = true;
+          }
         }
-        var $td = $('<td>').html(inside);
-        if (studio[type].substr(0, 3) === 'yes') {
-          $td.addClass('green');
-        } else if (studio[type] === 'no') {
-          $td.addClass('red');
-        }
-        $tr.append($td);
       }
-      $newGrid.append($tr);
+
+      // Add tds
+      if (include) {
+        for (var j in types) {
+          var type = types[j];
+          var inside = studio[type];
+          if (type === 'Studio Name') {
+            inside = '<a href="'+studio['Website']+'">' + studio[type] + '</a>';
+          }
+          var $td = $('<td>').html(inside);
+          if (studio[type].substr(0, 3) === 'yes') {
+            $td.addClass('green');
+          } else if (studio[type] === 'no') {
+            $td.addClass('red');
+          }
+          $tr.append($td);
+        }
+        $newGrid.append($tr);
+      }
     }
 
     // Add to the grid div
@@ -59,19 +86,18 @@ $(function() {
   }
 
   // Gets geolocation
-  function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-      alert('geolocation not supported');
-    }
-  }
-  function showPosition(position) {
-    var coord = position.coords;
-    // console.log(coord);
-  }
-  getLocation();
-
+  // function getLocation() {
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition(showPosition);
+  //   } else {
+  //     alert('geolocation not supported');
+  //   }
+  // }
+  // function showPosition(position) {
+  //   var coord = position.coords;
+  //   // console.log(coord);
+  // }
+  // getLocation();
 
   // Calculates distance between two coordinates in km
   function calcCrow(lat1, lon1, lat2, lon2) {
